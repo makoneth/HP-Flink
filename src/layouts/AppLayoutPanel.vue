@@ -4,40 +4,43 @@
     <div class="wrapper">
       <nav id="sidebar">
         <b-container fluid class="pt-5">
-          <div class="user">
-            <b-avatar></b-avatar>
-            <strong>{{currentUser.name}}</strong>
-          </div>
+          <AsideUser 
+            :name='currentUser.name' 
+            :banner='currentUser.house'>
+          </AsideUser>
         </b-container>
-    </nav>
+      </nav>
 
-    <div id="content">
-      <b-container>
-        <slot />
-      </b-container>
-    </div>
+      <div id="content">
+        <b-container>
+          <slot />
+        </b-container>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import Header from '@/components/Header.vue'
-import { mapState } from 'vuex'
-export default {
-  name: "AppLayoutPanel",
-  components: {
-    Header
-  },
-  data() {
-    return {
-      api: 'https://hp-api.herokuapp.com/api/characters',
-      currentUser: this.$store.getters.getUserInfo || null
-    }
-  },
-  computed:{
-    ...mapState(['getUserInfo']),
-  },
-}
+  import Header from '@/components/Header.vue'
+  import AsideUser from '@/components/AsideUser.vue'
+  import {
+    mapState
+  } from 'vuex'
+  export default {
+    name: "AppLayoutPanel",
+    components: {
+      Header,
+      AsideUser,
+    },
+    data() {
+      return {
+        currentUser: this.$store.getters.getUserInfo || null
+      }
+    },
+    computed: {
+      ...mapState(['getUserInfo']),
+    },
+  }
 </script>
 
 <style lang="scss" scoped>
@@ -57,21 +60,9 @@ export default {
     /* z-index: 999; */
     background: #7386D5;
     color: #fff;
-  }
 
-  .user {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .b-avatar {
-      width: 7rem;
-      height: 7rem;
-    }
-
-    strong {
-      font-size: 1.3rem;
-      margin-top: 0.7rem;
+    @media (max-width: 768px) {
+      display: none;
     }
   }
 
@@ -82,5 +73,9 @@ export default {
     position: absolute;
     overflow: scroll;
     right: 0;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
   }
 </style>

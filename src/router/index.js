@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import store from "../store";
 
 Vue.use(VueRouter)
 
@@ -17,6 +18,10 @@ const routes = [
     path: "/dashboard",
     name: "Dashboard",
     component: () => import("../views/Dashboard.vue"),
+    beforeEnter: (to, from, next) => {
+      if (!store.getters.getLoginStatus) next({ name: "Home" });
+      else next();
+    },
     meta: {
       layout: "AppLayoutPanel",
     },
@@ -25,6 +30,10 @@ const routes = [
     path: "/user/:id",
     name: "User",
     component: () => import("../views/User.vue"),
+    beforeEnter: (to, from, next) => {
+      if (!store.getters.getLoginStatus) next({ name: "Home" });
+      else next();
+    },
     meta: {
       layout: "AppLayoutPanel",
     },

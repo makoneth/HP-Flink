@@ -31,7 +31,7 @@
       }
     },
     methods: {
-      ...mapMutations(['setUser']),
+      ...mapMutations(['setUser', 'setLoginStatus']),
       onSubmit(event) {
         event.preventDefault()
         this.getLogin();
@@ -50,6 +50,8 @@
         .then( response => {
           console.log(response)
           this.setUser({value: response.data});
+          this.setLoginStatus({value: true});
+          this.$router.push({ path: '/dashboard' })
         })
         .catch( error => {
           console.log(error);

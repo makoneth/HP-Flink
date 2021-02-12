@@ -15,8 +15,15 @@ export default {
   },
   data() {
     return {
-      api: 'https://hp-api.herokuapp.com/api/characters',
+      api: '',
+      isStaff: '',
     }
+  },
+  created() {
+    this.isStaff = this.$store.getters.getUserInfo.staff;
+    let student = 'https://hp-api.herokuapp.com/api/characters/students';
+    let staff = 'https://hp-api.herokuapp.com/api/characters';
+    this.isStaff ? this.api = staff : this.api = student;
   },
 }
 </script>

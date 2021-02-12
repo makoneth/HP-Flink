@@ -9,6 +9,7 @@ export default new Vuex.Store({
   state: {
     userInfo: {},
     usersList: [],
+    isLoged: false,
   },
   mutations: {
     setUser(state, data = {}) {
@@ -17,6 +18,9 @@ export default new Vuex.Store({
     setUsersList(state, data = {}) {
       state.usersList = data.value;
     },
+    setLoginStatus(state, data = {}) {
+      state.isLoged = data.value;
+    },
   },
   getters: {
     getUserInfo(state) {
@@ -24,6 +28,9 @@ export default new Vuex.Store({
     },
     getUsersList(state) {
       return state.usersList;
+    },
+    getLoginStatus(state) {
+      return state.isLoged;
     },
   },
   actions: {},

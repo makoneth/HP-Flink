@@ -1,6 +1,6 @@
 <template>
   <b-navbar toggleable="lg" type="dark" variant="info">
-    <b-navbar-brand to="/dashboard">Gryffindor Control Plus</b-navbar-brand>
+    <b-navbar-brand to="/dashboard">Gryffinbook</b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
