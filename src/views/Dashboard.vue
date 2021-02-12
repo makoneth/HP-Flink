@@ -34,7 +34,7 @@ export default {
   },
   data() {
     return {
-      api: 'http://hp-api.herokuapp.com/api/characters',
+      api: 'https://hp-api.herokuapp.com/api/characters',
       currentUser: this.$store.getters.getUserInfo || null
     }
   },
@@ -69,13 +69,13 @@ export default {
     align-items: center;
 
     .b-avatar {
-      width: 6rem;
-      height: 6rem;
+      width: 7rem;
+      height: 7rem;
     }
 
     strong {
-      font-size: 1.2rem;
-      margin-top: 1rem;
+      font-size: 1.3rem;
+      margin-top: 0.7rem;
     }
   }
 
