@@ -36,11 +36,13 @@
     data() {
       return {
         currentUser: this.$store.getters.getUserInfo || null,
-        image: '',
+        image: {},
       }
     },
-    created() {
-      this.image = this.$store.getters.getUsersList.find(el => el.name === this.$store.getters.getUserInfo.name);
+    mounted() {
+      setTimeout(() => {
+        this.image = this.$store.getters.getUsersList.find(el => el.name === this.$store.getters.getUserInfo.name);
+      }, 1000);
     },
     computed: {
       ...mapState(['getUserInfo']),
