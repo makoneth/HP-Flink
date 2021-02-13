@@ -37,8 +37,8 @@
       return {
         api: 'https://cors-anywhere.herokuapp.com/http://ec2-52-37-61-68.us-west-2.compute.amazonaws.com:1234/api/v1/challenge/login',
         form: {
-          email: 'snape@hogwarts.com',
-          password: 'snape0109',
+          email: '',
+          password: '',
         },
         isLoading: false,
         formError: null,
