@@ -56,6 +56,10 @@
     width: 100%;
     align-items: stretch;
     position: relative;
+    overflow: hidden;
+    @media (max-width: 768px) {
+      height: 100vh;
+    }
   }
 
   #sidebar {

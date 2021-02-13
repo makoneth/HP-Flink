@@ -1,7 +1,17 @@
 <template>
   <div class="dashboard">
+    <b-input-group size="md" class="mb-4">
+      <b-input-group-prepend is-text>
+        <b-icon icon="search"></b-icon>
+      </b-input-group-prepend>
+      <b-form-input v-model="filter" type="search" placeholder="Filter by any user info"></b-form-input>
+    </b-input-group>
     <b-table
-     :busy="isBusy"
+      id="dashboardTable"
+      :filter="filter"
+      :tbody-transition-props="transProps"
+      primary-key="image"
+      :busy="isBusy"
       show-empty 
       empty-text="No hay registros para mostrar" 
       striped hover 
@@ -39,7 +49,12 @@ export default {
     },
   data() {
     return {
+      transProps: {
+        // Transition name
+        name: 'flip-list'
+      },
       isBusy: true,
+      filter: '',
       fields: [
         {
           key: 'image',
@@ -91,8 +106,10 @@ export default {
 </script>
 
 <style lang="scss">
-  /* Busy table styling */
   table.b-table[aria-busy='true'] {
     opacity: 0.6;
+  }
+  table#dashboardTable .flip-list-move {
+    transition: transform 1s;
   }
 </style>
