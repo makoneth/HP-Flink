@@ -4,6 +4,10 @@
 
 Proyecto prueba para Flink
 
+Para evitar problemas de contenido mixto en las API's o bloqueos de CORS, se usa a modo de desarrollo un proxy [cors-anywhere](https://github.com/Rob--W/cors-anywhere)
+
+Es necesario solicitar acceso temporal mediante [este sitio](https://cors-anywhere.herokuapp.com/corsdemo) 
+
 ## Project setup
 ```
 yarn install
