@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="login">
     <slot />
   </div>
 </template>
@@ -9,3 +9,12 @@
     name: "AppLayoutLogin"
   }
 </script>
+
+<style lang="scss">
+  .login {
+    background-image: url(../assets/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }  
+</style>

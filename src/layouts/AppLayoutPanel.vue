@@ -6,7 +6,8 @@
         <b-container fluid class="pt-5">
           <AsideUser 
             :name='currentUser.name' 
-            :banner='currentUser.house'>
+            :banner='currentUser.house'
+            :image='image.image'>
           </AsideUser>
         </b-container>
       </nav>
@@ -34,8 +35,12 @@
     },
     data() {
       return {
-        currentUser: this.$store.getters.getUserInfo || null
+        currentUser: this.$store.getters.getUserInfo || null,
+        image: '',
       }
+    },
+    created() {
+      this.image = this.$store.getters.getUsersList.find(el => el.name === this.$store.getters.getUserInfo.name);
     },
     computed: {
       ...mapState(['getUserInfo']),
@@ -58,7 +63,7 @@
     left: 0;
     height: 100vh;
     /* z-index: 999; */
-    background: #7386D5;
+    background: #345995;
     color: #fff;
 
     @media (max-width: 768px) {
